@@ -4,13 +4,13 @@ OBJ_DIR = $(OUTPUT_DIR)/obj
 
 CXX = g++
 CXXFLAGS = -Wall -g -static
-INCLUDE_DIRS = $(addprefix -I, $(wildcard src/*/))
+INCLUDE_DIRS = $(addprefix -I, $(wildcard */))
 LIB_DIRS = -Llib
 LIBS = -lmingw32 -lws2_32
 
 # Gather all source files and corresponding object files
-SRC = $(wildcard src/*.c) $(wildcard src/*/*.c)
-OBJ = $(patsubst src/%.c, $(OBJ_DIR)/%.o, $(SRC))
+SRC = $(wildcard *.c)
+OBJ = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
 
 # Default target
 default: $(OUTPUT_DIR)/$(PROJECTNAME)
@@ -21,7 +21,7 @@ $(OUTPUT_DIR)/$(PROJECTNAME): $(OBJ)
 	@$(CXX) $(OBJ) -o $@ $(LIB_DIRS) $(LIBS) $(CXXFLAGS)
 
 # Compile each source file into an object file
-$(OBJ_DIR)/%.o: src/%.c
+$(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(INCLUDE_DIRS)
 	
