@@ -15,8 +15,8 @@ encoder_0 = H264Encoder(10000000)
 encoder_1 = H264Encoder(10000000)
 
 def record(name):
-	output_0 = FfmpegOutput(f"{name}-cam0.mp4")
-	output_1 = FfmpegOutput(f"{name}-cam1.mp4")
+	output_0 = FfmpegOutput(f"files/{name}-cam0.mp4")
+	output_1 = FfmpegOutput(f"files/{name}-cam1.mp4")
 
 	picam_0.start_recording(encoder_0, output_0)
 	picam_1.start_recording(encoder_1, output_1)
