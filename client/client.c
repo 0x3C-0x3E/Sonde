@@ -6,7 +6,7 @@ int start_client(const char * server_ip, int port)
 	int client_socket = socket(AF_INET, SOCK_STREAM, 0);
 
 	struct sockaddr_in address;
-	struct sockaddr_in address;
+	
 	address.sin_family = AF_INET;
 	address.sin_port = htons(port);
 
