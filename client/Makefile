@@ -1,10 +1,10 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -std=c11
-LDFLAGS = -lpthread
+CFLAGS = -Wall -Wextra -pedantic -std=c11 -lw2_32
+LDFLAGS = -lws2_32
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
-TARGET = server
+TARGET = client
 
 all: $(TARGET)
 
@@ -15,6 +15,6 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	del /F /Q $(OBJS) $(TARGET).exe 2> NUL || rm -f $(OBJS) $(TARGET)
 
 .PHONY: all clean
