@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-
+#include <string.h>
 
 #define SERVER_PORT 8080
 #define BUFFER_SIZE 1024

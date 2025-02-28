@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -std=c11 -lw2_32
-LDFLAGS = -lws2_32
+CFLAGS = -Wall -Wextra -pedantic -std=c11
+LDFLAGS = 
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
