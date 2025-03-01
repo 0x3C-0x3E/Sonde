@@ -132,6 +132,9 @@ void * handle_client(void * arg)
 
 	get_client_ip_address(ip_address, sizeof(ip_address), data->client_socket, data->client, &thread_client_size);
 
+	const char * message = "checkconn";
+	send(* data->client_socket, message, strlen(message), 0);
+
 	while (client_running)
 	{
 		memset(buffer, 0, BUFFER_SIZE);
@@ -146,6 +149,11 @@ void * handle_client(void * arg)
 		send_to_all(buffer, sizeof(buffer), data->client_socket);
 
 		printf("[%s] %s\n", ip_address, buffer);
+
+		if (strcmp(buffer, "checkconn_back") == 0)
+		{
+			printf("[INFO] Successfully completed ping roundtrip to client [%s]\n", ip_address);
+		}
 	}
 
 	return NULL;
