@@ -6,7 +6,7 @@ int main(int argc, char * argv[])
 {
 	if (argc != 3)
 	{
-		printf("Not enough args!\n Usage: ./client ipaddr port");
+		printf("Not enough args! Usage: \n 	./client ipaddr port\n");
 		return 1;
 	}
 

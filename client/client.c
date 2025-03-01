@@ -6,7 +6,7 @@ int start_client(const char * server_ip, int port)
 	int client_socket = socket(AF_INET, SOCK_STREAM, 0);
 
 	struct sockaddr_in address;
-	
+
 	address.sin_family = AF_INET;
 	address.sin_port = htons(port);
 
@@ -16,14 +16,14 @@ int start_client(const char * server_ip, int port)
 	// Establish a connection to address on client_socket
 	connect(client_socket, (struct sockaddr *) &address, sizeof(address));
 
-	const char * message = "conn_est";
+	const char * message = "checkconn";
 
 	send(client_socket, message, strlen(message), 0);
 
 	// Close the connection
 	close(client_socket);
 
-	printf("%s", message);
+	printf("%s\n", message);
 	return 0;
 
 }
