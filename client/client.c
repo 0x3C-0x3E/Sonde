@@ -17,7 +17,7 @@ int PORT;
 
 char send_buffer[BUFFER_SIZE];
 
-buffer_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t buffer_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 pthread_cond_t buffer_cond = PTHREAD_COND_INITIALIZER;
 

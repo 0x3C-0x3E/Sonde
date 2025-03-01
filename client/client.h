@@ -7,6 +7,8 @@
 #include <arpa/inet.h>
 #include <string.h>
 #include <pthread.h>
+#include <stdbool.h> 
+
 
 #define SERVER_PORT 8080
 #define BUFFER_SIZE 1024
@@ -21,7 +23,7 @@ void * send_thread(void * arg);
 
 extern bool client_running;
 
-extern SOCKET client_socket;
+extern int client_socket;
 
 extern struct sockaddr_in server;
 
