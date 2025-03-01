@@ -29,7 +29,7 @@ int data_available = 0;
 int start_client(const char * server_ip, int port)
 {
 	client_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if (client_socket == INVALID_SOCKET)
+	if (client_socket == 0)
 	{
 		printf("Could not create socket.\n");
 		return 1;
