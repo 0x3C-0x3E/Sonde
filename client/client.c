@@ -4,7 +4,7 @@
 
 bool client_running;
 
-SOCKET client_socket;
+int client_socket;
 
 struct sockaddr_in server;
 
@@ -50,7 +50,7 @@ int start_client(const char * server_ip, int port)
 	}
 
 	// Set address to your computer's local address
-	if (connect(client_socket, (struct sockaddr*)&server, sizeof(server)) == SOCKET_ERROR)
+	if (connect(client_socket, (struct sockaddr*)&server, sizeof(server)) == SO_ERROR)
 	{
 		printf("Failed to connect to server\n");
 		close(client_socket);
