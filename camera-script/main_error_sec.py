@@ -39,14 +39,13 @@ def record(name: str):
 
 		picam_0.stop_recording()
 		picam_1.stop_recording()
-		
+
 
 	except Exception as e:
 		print(f"Error during recording: {e}")
 		logfile.write(f"[{get_time()}][ERROR] Error during recording: {e}")
 
 	finally:
-		try:
 		picam_0.stop_recording()
 		picam_1.stop_recording()
 
