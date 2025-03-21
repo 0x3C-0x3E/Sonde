@@ -70,7 +70,7 @@ logfile = open("logfile.log", "w")
 logfile.write(f"[{get_time()}][INFO] Created logfile")
 
 
-if __name == "__main__":
+if __name__ == "__main__":
 
 	if (picam_0 == None) or (picam_1 == None):
 		exit(0)
